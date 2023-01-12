@@ -2,7 +2,7 @@
 I switch often back and forth between the English and Japanese keyboards.
 In windows, this requires a very unergnomic 4 keystrokes pressed in this sequence: 
 
-`⊞ + spacebar`   then   `alt + ~`
+`⊞ + spacebar`,   then   `alt + ~`
 
 *(notice how much your left hand has to contort to do this sequence)*
 

@@ -47,5 +47,5 @@ return
 ; this is inefficient bc you have to reposition your right hand
 ; this code block turns Lshift into the down arrow
 #If (GetKeyboardLanguage(WinActive("A")) = 0x0411)
-	Lshift::Send, {down}    
+	vk09::Send, {down}    
 	return 

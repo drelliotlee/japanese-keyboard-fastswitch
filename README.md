@@ -17,6 +17,7 @@ This autohotkey script makes a single key `CapsLock` toggle back and forth betwe
 ## Headaches I Encountered
 - Every physical key does not correspond 1-to-1 with a virtual key that windows registers 🤯. Depending on your active language and keyboard, a physical key can map to different virtual keys.
 - Some keys (like the `fn` key) are not re-programmable because they are controlled directly by your hardware's BIOS
+- Use `sleep, 200` in between keystroke sequences
 
 ## Technologies Practiced
 - Autohotkey

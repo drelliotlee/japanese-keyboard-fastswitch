@@ -25,27 +25,21 @@ GetKeyboardLanguage(_hWnd=0)
 	return KBLayout & 0xFFFF
 }
 
+; 0x0411 = japanese
+; 0x0409 = english
 #if !WinActive("ahk_exe HD-Player.exe")
-vk14::    ; if you press caps lock while in english
+vk14::
 {
-	SetInputLang(0x0411)    ; change language to japanese
-	sleep, 50
-	send {vkf2}         ; then switch from romaji to hiragana
+	If (GetKeyboardLanguage(WinActive("A")) = 0x0411)
+		; vk09::Send, {down}  
+		{
+			SetInputLang(0x0409)    ; change language to english
+			sleep, 200 ; OMG THIS BUG TOOK ME 4 HOURS TO FIND. SLEEP 50 was too fast!!
+			send, {LAlt down}{`}{LAlt up}
+		}
+	Else
+	; If (GetKeyboardLanguage(WinActive("A")) = 0x0409)
+		SetInputLang(0x0411)    ; change language to english
+	return
 }
 return
-
-#if !WinActive("ahk_exe HD-Player.exe")
-vkf0::      ; if you press caps lock while in japanese
-{
-	SetInputLang(0x0409)    ; change language to english
-}
-return
-
-; when in japanese mode, to go down the list of
-; suggestions in the pop-up menu, 
-; you have to use the down arrow
-; this is inefficient bc you have to reposition your right hand
-; this code block turns Lshift into the down arrow
-#If (GetKeyboardLanguage(WinActive("A")) = 0x0411)
-	vk09::Send, {down}    
-	return 
